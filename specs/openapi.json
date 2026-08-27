@@ -7507,7 +7507,7 @@
     "/v1/projects/{ref}/analytics/endpoints/logs.all": {
       "get": {
         "deprecated": true,
-        "description": "Executes a SQL query on the project's logs.\n\nEither the `iso_timestamp_start` and `iso_timestamp_end` parameters must be provided.\nIf both are not provided, only the last 1 minute of logs will be queried.\nThe timestamp range must be no more than 24 hours and is rounded to the nearest minute. If the range is more than 24 hours, a validation error will be thrown.\n\nNote: Unless the `sql` parameter is provided, only edge_logs will be queried. See the [log query docs](/docs/guides/telemetry/logs?queryGroups=product&product=postgres&queryGroups=source&source=edge_logs#querying-with-the-logs-explorer:~:text=logs%20from%20the-,Sources,-drop%2Ddown%3A) for all available sources.\n",
+        "description": "Executes a SQL query on the project's logs.\n\nEither the `iso_timestamp_start` and `iso_timestamp_end` parameters must be provided.\nIf both are not provided, only the last 1 minute of logs will be queried.\nThe timestamp range must be no more than 24 hours and is rounded to the nearest minute. If the range is more than 24 hours, a validation error will be thrown.\n\nNote: Unless the `sql` parameter is provided, only edge_logs will be queried. See the [log query docs](https://supabase.com/docs/guides/monitoring-and-debugging/logs#logs-explorer) for all available sources.\n",
         "operationId": "v1-get-project-logs-all",
         "parameters": [
           {
@@ -7527,7 +7527,7 @@
             "name": "sql",
             "required": false,
             "in": "query",
-            "description": "Custom SQL query to execute on the logs. See [querying logs](/docs/guides/telemetry/logs?queryGroups=product&product=postgres&queryGroups=source&source=edge_logs#querying-with-the-logs-explorer) for more details.",
+            "description": "Custom SQL query to execute on the logs. See [querying logs](https://supabase.com/docs/guides/monitoring-and-debugging/logs#querying-with-the-logs-explorer) for more details.",
             "schema": {
               "example": "select event_message from edge_logs limit 10",
               "type": "string"
@@ -7596,7 +7596,7 @@
           }
         ],
         "x-endpoint-owners": [
-          "analytics"
+          "observability"
         ],
         "x-fga-permissions": [
           [
@@ -7629,7 +7629,7 @@
             "name": "sql",
             "required": false,
             "in": "query",
-            "description": "Custom SQL query to execute on the logs. See [querying logs](/docs/guides/telemetry/logs?queryGroups=product&product=postgres&queryGroups=source&source=edge_logs#querying-with-the-logs-explorer) for more details.",
+            "description": "Custom SQL query to execute on the logs. See [querying logs](https://supabase.com/docs/guides/monitoring-and-debugging/logs#querying-with-the-logs-explorer) for more details.",
             "schema": {
               "example": "select event_message from edge_logs limit 10",
               "type": "string"
@@ -7698,7 +7698,7 @@
           }
         ],
         "x-endpoint-owners": [
-          "analytics"
+          "observability"
         ],
         "x-fga-permissions": [
           [
@@ -7778,7 +7778,7 @@
           "Analytics"
         ],
         "x-endpoint-owners": [
-          "analytics"
+          "observability"
         ],
         "x-fga-permissions": [
           [
@@ -7839,7 +7839,7 @@
           "Analytics"
         ],
         "x-endpoint-owners": [
-          "analytics"
+          "observability"
         ],
         "x-fga-permissions": [
           [
@@ -7924,7 +7924,7 @@
           "Analytics"
         ],
         "x-endpoint-owners": [
-          "analytics"
+          "observability"
         ],
         "x-fga-permissions": [
           [
@@ -8000,7 +8000,7 @@
           }
         ],
         "x-endpoint-owners": [
-          "analytics"
+          "observability"
         ],
         "x-fga-permissions": [
           [
@@ -19485,6 +19485,7 @@
                     "auth_otp_long_expiry",
                     "auth_otp_short_length",
                     "ssl_not_enforced",
+                    "log_connections_not_enabled",
                     "network_restrictions_not_set",
                     "password_requirements_min_length",
                     "pitr_not_enabled",
@@ -19493,7 +19494,16 @@
                     "auth_password_policy_missing",
                     "leaked_service_key",
                     "no_backup_admin",
-                    "vulnerable_postgres_version"
+                    "vulnerable_postgres_version",
+                    "db_not_reachable",
+                    "db_connection_failing",
+                    "db_connection_limit_reached",
+                    "instance_telemetry_lost",
+                    "instance_db_down",
+                    "instance_alert_firing",
+                    "log_service_error_rate_high",
+                    "project_not_active",
+                    "advisor_check_unavailable"
                   ],
                   "type": "string"
                 },
@@ -19520,9 +19530,11 @@
                     "type": "string",
                     "enum": [
                       "PERFORMANCE",
-                      "SECURITY"
+                      "SECURITY",
+                      "HEALTH"
                     ]
-                  }
+                  },
+                  "x-ignore-array-items-must-be-objects": true
                 },
                 "description": {
                   "type": "string"
@@ -19546,20 +19558,24 @@
                       "type": "string"
                     },
                     "type": {
-                      "type": "string",
                       "enum": [
                         "table",
                         "view",
+                        "materialized view",
+                        "foreign table",
                         "auth",
                         "function",
                         "extension",
-                        "compliance"
-                      ]
+                        "compliance",
+                        "health"
+                      ],
+                      "type": "string"
                     },
                     "fkey_name": {
                       "type": "string"
                     },
                     "fkey_columns": {
+                      "x-ignore-array-items-must-be-objects": true,
                       "type": "array",
                       "items": {
                         "type": "number"
@@ -19569,6 +19585,11 @@
                 },
                 "cache_key": {
                   "type": "string"
+                },
+                "observed_at": {
+                  "type": "string",
+                  "format": "date-time",
+                  "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d(?::[0-5]\\d(?:\\.\\d+)?)?(?:Z))$"
                 }
               },
               "required": [
@@ -19581,7 +19602,8 @@
                 "detail",
                 "remediation",
                 "cache_key"
-              ]
+              ],
+              "additionalProperties": {}
             }
           }
         },

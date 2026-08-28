@@ -12845,7 +12845,11 @@
       "description": "Visit [https://supabase.github.io/storage/](https://supabase.github.io/storage/) for complete documentation."
     }
   ],
-  "servers": [],
+  "servers": [
+    {
+      "url": "https://api.supabase.com"
+    }
+  ],
   "components": {
     "securitySchemes": {
       "bearer": {
@@ -19581,7 +19585,8 @@
                         "type": "number"
                       }
                     }
-                  }
+                  },
+                  "additionalProperties": {}
                 },
                 "cache_key": {
                   "type": "string"

@@ -12856,6 +12856,42 @@
         "scheme": "bearer",
         "bearerFormat": "JWT",
         "type": "http"
+      },
+      "oauth2": {
+        "type": "oauth2",
+        "flows": {
+          "authorizationCode": {
+            "authorizationUrl": "https://api.supabase.com/v1/oauth/authorize",
+            "tokenUrl": "https://api.supabase.com/v1/oauth/token",
+            "scopes": {
+              "analytics:read": "Read access to analytics",
+              "analytics:write": "Write access to analytics",
+              "analytics_config:read": "Read access to analytics config",
+              "analytics_config:write": "Write access to analytics config",
+              "auth:read": "Read access to auth",
+              "auth:write": "Write access to auth",
+              "database:read": "Read access to database",
+              "database:write": "Write access to database",
+              "domains:read": "Read access to domains",
+              "domains:write": "Write access to domains",
+              "edge_functions:read": "Read access to edge functions",
+              "edge_functions:write": "Write access to edge functions",
+              "environment:read": "Read access to environment",
+              "environment:write": "Write access to environment",
+              "organizations:read": "Read access to organizations",
+              "organizations:write": "Write access to organizations",
+              "projects:read": "Read access to projects",
+              "projects:write": "Write access to projects",
+              "rest:read": "Read access to rest",
+              "rest:write": "Write access to rest",
+              "secrets:read": "Read access to secrets",
+              "secrets:write": "Write access to secrets",
+              "storage:read": "Read access to storage",
+              "storage:write": "Write access to storage"
+            }
+          }
+        },
+        "description": "OAuth 2.0 authorization code flow for Supabase OAuth apps. Tokens carry the scopes approved for the app by the organization."
       }
     },
     "schemas": {

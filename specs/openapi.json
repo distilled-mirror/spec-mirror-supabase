@@ -3196,6 +3196,7 @@
                         "unavailableReason": {
                           "type": "string",
                           "enum": [
+                            "platform_unsupported",
                             "postgres_upgrade_required",
                             "ssl_enforcement_required",
                             "temporarily_unavailable"
@@ -3314,6 +3315,7 @@
                         "unavailableReason": {
                           "type": "string",
                           "enum": [
+                            "platform_unsupported",
                             "postgres_upgrade_required",
                             "ssl_enforcement_required",
                             "temporarily_unavailable"
@@ -10172,7 +10174,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/FunctionResponse_Output"
+                  "$ref": "#/components/schemas/FunctionSlugResponse_Output"
                 }
               }
             }
@@ -14745,8 +14747,7 @@
                       }
                     },
                     "required": [
-                      "status",
-                      "validation_records"
+                      "status"
                     ]
                   },
                   "ownership_verification": {
@@ -14785,7 +14786,6 @@
                   "id",
                   "hostname",
                   "ssl",
-                  "ownership_verification",
                   "custom_origin_server",
                   "status"
                 ]

@@ -14801,7 +14801,6 @@
         },
         "required": [
           "status",
-          "custom_hostname",
           "data"
         ]
       },
@@ -17496,6 +17495,10 @@
             "maximum": 9007199254740991,
             "nullable": true
           },
+          "security_update_password_require_current_password": {
+            "type": "boolean",
+            "nullable": true
+          },
           "security_update_password_require_reauthentication": {
             "type": "boolean",
             "nullable": true
@@ -17875,6 +17878,7 @@
           "security_captcha_secret",
           "security_manual_linking_enabled",
           "security_refresh_token_reuse_interval",
+          "security_update_password_require_current_password",
           "security_update_password_require_reauthentication",
           "sessions_inactivity_timeout",
           "sessions_single_per_user",
@@ -18258,6 +18262,11 @@
           },
           "security_update_password_require_reauthentication": {
             "type": "boolean",
+            "nullable": true
+          },
+          "security_update_password_require_current_password": {
+            "type": "boolean",
+            "description": "Require the user's current password when updating their password.",
             "nullable": true
           },
           "security_refresh_token_reuse_interval": {
@@ -21591,7 +21600,8 @@
             ]
           },
           "migrationVersion": {
-            "type": "string"
+            "type": "string",
+            "nullable": true
           }
         },
         "required": [

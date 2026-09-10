@@ -14724,11 +14724,7 @@
                             "txt_value": {
                               "type": "string"
                             }
-                          },
-                          "required": [
-                            "txt_name",
-                            "txt_value"
-                          ]
+                          }
                         }
                       },
                       "validation_errors": {
@@ -14745,10 +14741,7 @@
                           ]
                         }
                       }
-                    },
-                    "required": [
-                      "status"
-                    ]
+                    }
                   },
                   "ownership_verification": {
                     "type": "object",
@@ -14762,12 +14755,7 @@
                       "value": {
                         "type": "string"
                       }
-                    },
-                    "required": [
-                      "type",
-                      "name",
-                      "value"
-                    ]
+                    }
                   },
                   "custom_origin_server": {
                     "type": "string"
@@ -14784,10 +14772,7 @@
                 },
                 "required": [
                   "id",
-                  "hostname",
-                  "ssl",
-                  "custom_origin_server",
-                  "status"
+                  "hostname"
                 ]
               }
             },
@@ -19491,6 +19476,7 @@
               "type": "object",
               "properties": {
                 "name": {
+                  "type": "string",
                   "enum": [
                     "unindexed_foreign_keys",
                     "auth_users_exposed",
@@ -19534,8 +19520,7 @@
                     "log_edge_function_error_rate_high",
                     "project_not_active",
                     "advisor_check_unavailable"
-                  ],
-                  "type": "string"
+                  ]
                 },
                 "title": {
                   "type": "string"
@@ -19588,6 +19573,7 @@
                       "type": "string"
                     },
                     "type": {
+                      "type": "string",
                       "enum": [
                         "table",
                         "view",
@@ -19598,8 +19584,7 @@
                         "extension",
                         "compliance",
                         "health"
-                      ],
-                      "type": "string"
+                      ]
                     },
                     "fkey_name": {
                       "type": "string"
@@ -19934,8 +19919,7 @@
           "type": "object",
           "properties": {
             "version": {
-              "type": "string",
-              "minLength": 1
+              "type": "string"
             },
             "name": {
               "type": "string"
@@ -19996,8 +19980,7 @@
         "type": "object",
         "properties": {
           "version": {
-            "type": "string",
-            "minLength": 1
+            "type": "string"
           },
           "name": {
             "type": "string"

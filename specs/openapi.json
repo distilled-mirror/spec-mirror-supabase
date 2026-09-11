@@ -43,6 +43,15 @@
               }
             }
           },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden action"
+          },
+          "429": {
+            "description": "Rate limit exceeded"
+          },
           "500": {
             "description": "Failed to retrieve database branch"
           }
@@ -126,6 +135,15 @@
               }
             }
           },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden action"
+          },
+          "429": {
+            "description": "Rate limit exceeded"
+          },
           "500": {
             "description": "Failed to update database branch"
           }
@@ -208,6 +226,15 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden action"
+          },
+          "429": {
+            "description": "Rate limit exceeded"
           },
           "500": {
             "description": "Failed to delete database branch"
@@ -294,6 +321,15 @@
               }
             }
           },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden action"
+          },
+          "429": {
+            "description": "Rate limit exceeded"
+          },
           "500": {
             "description": "Failed to push database branch"
           }
@@ -378,6 +414,15 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden action"
+          },
+          "429": {
+            "description": "Rate limit exceeded"
           },
           "500": {
             "description": "Failed to merge database branch"
@@ -464,6 +509,15 @@
               }
             }
           },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden action"
+          },
+          "429": {
+            "description": "Rate limit exceeded"
+          },
           "500": {
             "description": "Failed to reset database branch"
           }
@@ -538,6 +592,15 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden action"
+          },
+          "429": {
+            "description": "Rate limit exceeded"
           },
           "500": {
             "description": "Failed to restore database branch"
@@ -632,6 +695,15 @@
               }
             },
             "description": ""
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden action"
+          },
+          "429": {
+            "description": "Rate limit exceeded"
           },
           "500": {
             "description": "Failed to diff database branch"
@@ -1114,6 +1186,15 @@
         "responses": {
           "204": {
             "description": ""
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden action"
+          },
+          "429": {
+            "description": "Rate limit exceeded"
           }
         },
         "summary": "[Beta] Authorize user through oauth",
@@ -1151,6 +1232,15 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden action"
+          },
+          "429": {
+            "description": "Rate limit exceeded"
           }
         },
         "summary": "[Beta] Exchange auth code for user's access and refresh token",
@@ -1180,6 +1270,15 @@
         "responses": {
           "204": {
             "description": ""
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden action"
+          },
+          "429": {
+            "description": "Rate limit exceeded"
           }
         },
         "summary": "[Beta] Revoke oauth app authorization and it's corresponding tokens",
@@ -2003,6 +2102,10 @@
         "x-fga-permissions": [
           [
             "api_gateway_keys_read"
+          ],
+          [
+            "api_gateway_keys_read",
+            "api_gateway_keys_secret_read"
           ]
         ],
         "x-oauth-scope": "secrets:read"
@@ -2409,6 +2512,10 @@
         "x-fga-permissions": [
           [
             "api_gateway_keys_read"
+          ],
+          [
+            "api_gateway_keys_read",
+            "api_gateway_keys_secret_read"
           ]
         ],
         "x-oauth-scope": "secrets:read"
@@ -2551,6 +2658,15 @@
               }
             }
           },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden action"
+          },
+          "429": {
+            "description": "Rate limit exceeded"
+          },
           "500": {
             "description": "Failed to retrieve database branches"
           }
@@ -2621,6 +2737,15 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden action"
+          },
+          "429": {
+            "description": "Rate limit exceeded"
           },
           "500": {
             "description": "Failed to create database branch"
@@ -2753,6 +2878,15 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden action"
+          },
+          "429": {
+            "description": "Rate limit exceeded"
           },
           "500": {
             "description": "Failed to fetch database branch"
@@ -4015,6 +4149,10 @@
         "x-fga-permissions": [
           [
             "data_api_config_read"
+          ],
+          [
+            "data_api_config_read",
+            "data_api_config_secret_read"
           ]
         ],
         "x-oauth-scope": "rest:read"
@@ -12434,6 +12572,15 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden action"
+          },
+          "429": {
+            "description": "Rate limit exceeded"
           }
         },
         "security": [
@@ -21560,11 +21707,15 @@
               },
               "iceberg_catalog": {
                 "type": "boolean"
+              },
+              "object_versioning": {
+                "type": "boolean"
               }
             },
             "required": [
               "list_v2",
-              "iceberg_catalog"
+              "iceberg_catalog",
+              "object_versioning"
             ]
           },
           "external": {

@@ -7496,7 +7496,6 @@
     },
     "/v1/projects/{ref}/advisors/performance": {
       "get": {
-        "deprecated": true,
         "description": "This is an **experimental** endpoint. It is subject to change or removal in future versions. Use it with caution, as it may not remain supported or stable.",
         "operationId": "v1-get-performance-advisors",
         "parameters": [
@@ -7558,12 +7557,12 @@
             "advisors_read"
           ]
         ],
-        "x-oauth-scope": "database:read"
+        "x-oauth-scope": "database:read",
+        "x-scalar-stability": "experimental"
       }
     },
     "/v1/projects/{ref}/advisors/security": {
       "get": {
-        "deprecated": true,
         "description": "This is an **experimental** endpoint. It is subject to change or removal in future versions. Use it with caution, as it may not remain supported or stable.",
         "operationId": "v1-get-security-advisors",
         "parameters": [
@@ -7637,7 +7636,8 @@
             "advisors_read"
           ]
         ],
-        "x-oauth-scope": "database:read"
+        "x-oauth-scope": "database:read",
+        "x-scalar-stability": "experimental"
       }
     },
     "/v1/projects/{ref}/analytics/endpoints/logs.all": {
@@ -8951,7 +8951,6 @@
     },
     "/v1/projects/{ref}/database/context": {
       "get": {
-        "deprecated": true,
         "description": "This is an **experimental** endpoint. It is subject to change or removal in future versions. Use it with caution, as it may not remain supported or stable.",
         "operationId": "v1-get-database-metadata",
         "parameters": [
@@ -9013,7 +9012,8 @@
             "database_read"
           ]
         ],
-        "x-oauth-scope": "projects:read"
+        "x-oauth-scope": "projects:read",
+        "x-scalar-stability": "experimental"
       }
     },
     "/v1/projects/{ref}/database/password": {

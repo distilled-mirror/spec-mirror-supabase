@@ -637,7 +637,7 @@
     },
     "/v1/branches/{branch_id_or_ref}/diff": {
       "get": {
-        "description": "Diffs the specified database branch",
+        "description": "Diffs the specified database branch\n\nThis endpoint is currently in its **Beta** stage.",
         "operationId": "v1-diff-a-branch",
         "parameters": [
           {
@@ -714,7 +714,7 @@
             "bearer": []
           }
         ],
-        "summary": "[Beta] Diffs a database branch",
+        "summary": "Diffs a database branch",
         "tags": [
           "Environments"
         ],
@@ -722,6 +722,10 @@
           {
             "name": "OAuth scope: environment:write",
             "position": "after"
+          },
+          {
+            "name": "Beta",
+            "position": "before"
           }
         ],
         "x-endpoint-owners": [
@@ -735,7 +739,8 @@
             "branching_production_write"
           ]
         ],
-        "x-oauth-scope": "environment:write"
+        "x-oauth-scope": "environment:write",
+        "x-scalar-stability": "experimental"
       }
     },
     "/v1/projects": {
@@ -855,6 +860,7 @@
     },
     "/v1/projects/available-regions": {
       "get": {
+        "description": "This is an **experimental** endpoint. It is subject to change or removal in future versions. Use it with caution, as it may not remain supported or stable.\n\nThis endpoint is currently in its **Beta** stage.",
         "operationId": "v1-get-available-regions",
         "parameters": [
           {
@@ -934,7 +940,7 @@
             "bearer": []
           }
         ],
-        "summary": "[Beta] Gets the list of available regions that can be used for a new project",
+        "summary": "Gets the list of available regions that can be used for a new project",
         "tags": [
           "Projects"
         ],
@@ -942,12 +948,17 @@
           {
             "name": "OAuth scope: organizations:read",
             "position": "after"
+          },
+          {
+            "name": "Beta",
+            "position": "before"
           }
         ],
         "x-endpoint-owners": [
           "infra"
         ],
-        "x-oauth-scope": "organizations:read"
+        "x-oauth-scope": "organizations:read",
+        "x-scalar-stability": "experimental"
       }
     },
     "/v1/organizations": {
@@ -1066,6 +1077,7 @@
     },
     "/v1/oauth/authorize": {
       "get": {
+        "description": "This is an **experimental** endpoint. It is subject to change or removal in future versions. Use it with caution, as it may not remain supported or stable.\n\nThis endpoint is currently in its **Beta** stage.",
         "operationId": "v1-authorize-user",
         "parameters": [
           {
@@ -1197,19 +1209,26 @@
             "description": "Rate limit exceeded"
           }
         },
-        "summary": "[Beta] Authorize user through oauth",
+        "summary": "Authorize user through oauth",
         "tags": [
           "OAuth"
+        ],
+        "x-badges": [
+          {
+            "name": "Beta",
+            "position": "before"
+          }
         ],
         "x-endpoint-owners": [
           "auth",
           "control-plane"
-        ]
+        ],
+        "x-scalar-stability": "experimental"
       }
     },
     "/v1/oauth/token": {
       "post": {
-        "description": "Supports `authorization_code`, `refresh_token`, and `urn:ietf:params:oauth:grant-type:jwt-bearer` grant types. The `jwt-bearer` grant type (IDJAG — identity-directed JWT assertion) is in beta and available on Team and Enterprise plans only.",
+        "description": "Supports `authorization_code`, `refresh_token`, and `urn:ietf:params:oauth:grant-type:jwt-bearer` grant types. The `jwt-bearer` grant type (IDJAG — identity-directed JWT assertion) is in beta and available on Team and Enterprise plans only.\n\nThis endpoint is currently in its **Beta** stage.",
         "operationId": "v1-exchange-oauth-token",
         "parameters": [],
         "requestBody": {
@@ -1243,18 +1262,26 @@
             "description": "Rate limit exceeded"
           }
         },
-        "summary": "[Beta] Exchange auth code for user's access and refresh token",
+        "summary": "Exchange auth code for user's access and refresh token",
         "tags": [
           "OAuth"
+        ],
+        "x-badges": [
+          {
+            "name": "Beta",
+            "position": "before"
+          }
         ],
         "x-endpoint-owners": [
           "auth",
           "control-plane"
-        ]
+        ],
+        "x-scalar-stability": "experimental"
       }
     },
     "/v1/oauth/revoke": {
       "post": {
+        "description": "This is an **experimental** endpoint. It is subject to change or removal in future versions. Use it with caution, as it may not remain supported or stable.\n\nThis endpoint is currently in its **Beta** stage.",
         "operationId": "v1-revoke-token",
         "parameters": [],
         "requestBody": {
@@ -1281,14 +1308,21 @@
             "description": "Rate limit exceeded"
           }
         },
-        "summary": "[Beta] Revoke oauth app authorization and it's corresponding tokens",
+        "summary": "Revoke oauth app authorization and it's corresponding tokens",
         "tags": [
           "OAuth"
+        ],
+        "x-badges": [
+          {
+            "name": "Beta",
+            "position": "before"
+          }
         ],
         "x-endpoint-owners": [
           "auth",
           "control-plane"
-        ]
+        ],
+        "x-scalar-stability": "experimental"
       }
     },
     "/v1/oauth/authorize/project-claim": {
@@ -2923,6 +2957,7 @@
     },
     "/v1/projects/{ref}/custom-hostname": {
       "get": {
+        "description": "This is an **experimental** endpoint. It is subject to change or removal in future versions. Use it with caution, as it may not remain supported or stable.\n\nThis endpoint is currently in its **Beta** stage.",
         "operationId": "v1-get-hostname-config",
         "parameters": [
           {
@@ -2968,7 +3003,7 @@
             "bearer": []
           }
         ],
-        "summary": "[Beta] Gets project's custom hostname config",
+        "summary": "Gets project's custom hostname config",
         "tags": [
           "Domains"
         ],
@@ -2976,6 +3011,10 @@
           {
             "name": "OAuth scope: domains:read",
             "position": "after"
+          },
+          {
+            "name": "Beta",
+            "position": "before"
           }
         ],
         "x-endpoint-owners": [
@@ -2987,9 +3026,11 @@
             "custom_domain_read"
           ]
         ],
-        "x-oauth-scope": "domains:read"
+        "x-oauth-scope": "domains:read",
+        "x-scalar-stability": "experimental"
       },
       "delete": {
+        "description": "This is an **experimental** endpoint. It is subject to change or removal in future versions. Use it with caution, as it may not remain supported or stable.\n\nThis endpoint is currently in its **Beta** stage.",
         "operationId": "v1-Delete hostname config",
         "parameters": [
           {
@@ -3037,7 +3078,7 @@
             "bearer": []
           }
         ],
-        "summary": "[Beta] Deletes a project's custom hostname configuration",
+        "summary": "Deletes a project's custom hostname configuration",
         "tags": [
           "Domains"
         ],
@@ -3045,6 +3086,10 @@
           {
             "name": "OAuth scope: domains:write",
             "position": "after"
+          },
+          {
+            "name": "Beta",
+            "position": "before"
           }
         ],
         "x-endpoint-owners": [
@@ -3056,11 +3101,13 @@
             "custom_domain_write"
           ]
         ],
-        "x-oauth-scope": "domains:write"
+        "x-oauth-scope": "domains:write",
+        "x-scalar-stability": "experimental"
       }
     },
     "/v1/projects/{ref}/custom-hostname/initialize": {
       "post": {
+        "description": "This is an **experimental** endpoint. It is subject to change or removal in future versions. Use it with caution, as it may not remain supported or stable.\n\nThis endpoint is currently in its **Beta** stage.",
         "operationId": "v1-update-hostname-config",
         "parameters": [
           {
@@ -3116,7 +3163,7 @@
             "bearer": []
           }
         ],
-        "summary": "[Beta] Updates project's custom hostname configuration",
+        "summary": "Updates project's custom hostname configuration",
         "tags": [
           "Domains"
         ],
@@ -3124,6 +3171,10 @@
           {
             "name": "OAuth scope: domains:write",
             "position": "after"
+          },
+          {
+            "name": "Beta",
+            "position": "before"
           }
         ],
         "x-endpoint-owners": [
@@ -3135,11 +3186,13 @@
             "custom_domain_write"
           ]
         ],
-        "x-oauth-scope": "domains:write"
+        "x-oauth-scope": "domains:write",
+        "x-scalar-stability": "experimental"
       }
     },
     "/v1/projects/{ref}/custom-hostname/reverify": {
       "post": {
+        "description": "This is an **experimental** endpoint. It is subject to change or removal in future versions. Use it with caution, as it may not remain supported or stable.\n\nThis endpoint is currently in its **Beta** stage.",
         "operationId": "v1-verify-dns-config",
         "parameters": [
           {
@@ -3185,7 +3238,7 @@
             "bearer": []
           }
         ],
-        "summary": "[Beta] Attempts to verify the DNS configuration for project's custom hostname configuration",
+        "summary": "Attempts to verify the DNS configuration for project's custom hostname configuration",
         "tags": [
           "Domains"
         ],
@@ -3193,6 +3246,10 @@
           {
             "name": "OAuth scope: domains:write",
             "position": "after"
+          },
+          {
+            "name": "Beta",
+            "position": "before"
           }
         ],
         "x-endpoint-owners": [
@@ -3204,11 +3261,13 @@
             "custom_domain_write"
           ]
         ],
-        "x-oauth-scope": "domains:write"
+        "x-oauth-scope": "domains:write",
+        "x-scalar-stability": "experimental"
       }
     },
     "/v1/projects/{ref}/custom-hostname/activate": {
       "post": {
+        "description": "This is an **experimental** endpoint. It is subject to change or removal in future versions. Use it with caution, as it may not remain supported or stable.\n\nThis endpoint is currently in its **Beta** stage.",
         "operationId": "v1-activate-custom-hostname",
         "parameters": [
           {
@@ -3254,7 +3313,7 @@
             "bearer": []
           }
         ],
-        "summary": "[Beta] Activates a custom hostname for a project.",
+        "summary": "Activates a custom hostname for a project.",
         "tags": [
           "Domains"
         ],
@@ -3262,6 +3321,10 @@
           {
             "name": "OAuth scope: domains:write",
             "position": "after"
+          },
+          {
+            "name": "Beta",
+            "position": "before"
           }
         ],
         "x-endpoint-owners": [
@@ -3273,11 +3336,13 @@
             "custom_domain_write"
           ]
         ],
-        "x-oauth-scope": "domains:write"
+        "x-oauth-scope": "domains:write",
+        "x-scalar-stability": "experimental"
       }
     },
     "/v1/projects/{ref}/jit-access": {
       "get": {
+        "description": "This is an **experimental** endpoint. It is subject to change or removal in future versions. Use it with caution, as it may not remain supported or stable.\n\nThis endpoint is currently in its **Beta** stage.",
         "operationId": "v1-get-jit-access-config",
         "parameters": [
           {
@@ -3365,7 +3430,7 @@
             "bearer": []
           }
         ],
-        "summary": "[Beta] Get project's temporary access configuration.",
+        "summary": "Get project's temporary access configuration.",
         "tags": [
           "Database"
         ],
@@ -3373,6 +3438,10 @@
           {
             "name": "OAuth scope: database:read",
             "position": "after"
+          },
+          {
+            "name": "Beta",
+            "position": "before"
           }
         ],
         "x-endpoint-owners": [
@@ -3384,9 +3453,11 @@
             "project_admin_read"
           ]
         ],
-        "x-oauth-scope": "database:read"
+        "x-oauth-scope": "database:read",
+        "x-scalar-stability": "experimental"
       },
       "put": {
+        "description": "This is an **experimental** endpoint. It is subject to change or removal in future versions. Use it with caution, as it may not remain supported or stable.\n\nThis endpoint is currently in its **Beta** stage.",
         "operationId": "v1-update-jit-access-config",
         "parameters": [
           {
@@ -3484,7 +3555,7 @@
             "bearer": []
           }
         ],
-        "summary": "[Beta] Update project's temporary access configuration.",
+        "summary": "Update project's temporary access configuration.",
         "tags": [
           "Database"
         ],
@@ -3492,6 +3563,10 @@
           {
             "name": "OAuth scope: database:write",
             "position": "after"
+          },
+          {
+            "name": "Beta",
+            "position": "before"
           }
         ],
         "x-endpoint-owners": [
@@ -3503,11 +3578,13 @@
             "project_admin_write"
           ]
         ],
-        "x-oauth-scope": "database:write"
+        "x-oauth-scope": "database:write",
+        "x-scalar-stability": "experimental"
       }
     },
     "/v1/projects/{ref}/network-bans/retrieve": {
       "post": {
+        "description": "This is an **experimental** endpoint. It is subject to change or removal in future versions. Use it with caution, as it may not remain supported or stable.\n\nThis endpoint is currently in its **Beta** stage.",
         "operationId": "v1-list-all-network-bans",
         "parameters": [
           {
@@ -3553,7 +3630,7 @@
             "bearer": []
           }
         ],
-        "summary": "[Beta] Gets project's network bans",
+        "summary": "Gets project's network bans",
         "tags": [
           "Projects"
         ],
@@ -3561,6 +3638,10 @@
           {
             "name": "OAuth scope: projects:read",
             "position": "after"
+          },
+          {
+            "name": "Beta",
+            "position": "before"
           }
         ],
         "x-endpoint-owners": [
@@ -3572,11 +3653,13 @@
             "database_network_bans_read"
           ]
         ],
-        "x-oauth-scope": "projects:read"
+        "x-oauth-scope": "projects:read",
+        "x-scalar-stability": "experimental"
       }
     },
     "/v1/projects/{ref}/network-bans/retrieve/enriched": {
       "post": {
+        "description": "This is an **experimental** endpoint. It is subject to change or removal in future versions. Use it with caution, as it may not remain supported or stable.\n\nThis endpoint is currently in its **Beta** stage.",
         "operationId": "v1-list-all-network-bans-enriched",
         "parameters": [
           {
@@ -3622,7 +3705,7 @@
             "bearer": []
           }
         ],
-        "summary": "[Beta] Gets project's network bans with additional information about which databases they affect",
+        "summary": "Gets project's network bans with additional information about which databases they affect",
         "tags": [
           "Projects"
         ],
@@ -3630,6 +3713,10 @@
           {
             "name": "OAuth scope: projects:read",
             "position": "after"
+          },
+          {
+            "name": "Beta",
+            "position": "before"
           }
         ],
         "x-endpoint-owners": [
@@ -3641,11 +3728,13 @@
             "database_network_bans_read"
           ]
         ],
-        "x-oauth-scope": "projects:read"
+        "x-oauth-scope": "projects:read",
+        "x-scalar-stability": "experimental"
       }
     },
     "/v1/projects/{ref}/network-bans": {
       "delete": {
+        "description": "This is an **experimental** endpoint. It is subject to change or removal in future versions. Use it with caution, as it may not remain supported or stable.\n\nThis endpoint is currently in its **Beta** stage.",
         "operationId": "v1-delete-network-bans",
         "parameters": [
           {
@@ -3694,7 +3783,7 @@
             "bearer": []
           }
         ],
-        "summary": "[Beta] Remove network bans.",
+        "summary": "Remove network bans.",
         "tags": [
           "Projects"
         ],
@@ -3702,6 +3791,10 @@
           {
             "name": "OAuth scope: projects:write",
             "position": "after"
+          },
+          {
+            "name": "Beta",
+            "position": "before"
           }
         ],
         "x-endpoint-owners": [
@@ -3713,11 +3806,13 @@
             "database_network_bans_write"
           ]
         ],
-        "x-oauth-scope": "projects:write"
+        "x-oauth-scope": "projects:write",
+        "x-scalar-stability": "experimental"
       }
     },
     "/v1/projects/{ref}/network-restrictions": {
       "get": {
+        "description": "This is an **experimental** endpoint. It is subject to change or removal in future versions. Use it with caution, as it may not remain supported or stable.\n\nThis endpoint is currently in its **Beta** stage.",
         "operationId": "v1-get-network-restrictions",
         "parameters": [
           {
@@ -3763,7 +3858,7 @@
             "bearer": []
           }
         ],
-        "summary": "[Beta] Gets project's network restrictions",
+        "summary": "Gets project's network restrictions",
         "tags": [
           "Projects"
         ],
@@ -3771,6 +3866,10 @@
           {
             "name": "OAuth scope: projects:read",
             "position": "after"
+          },
+          {
+            "name": "Beta",
+            "position": "before"
           }
         ],
         "x-endpoint-owners": [
@@ -3782,9 +3881,11 @@
             "database_network_restrictions_read"
           ]
         ],
-        "x-oauth-scope": "projects:read"
+        "x-oauth-scope": "projects:read",
+        "x-scalar-stability": "experimental"
       },
       "patch": {
+        "description": "This is an **experimental** endpoint. It is subject to change or removal in future versions. Use it with caution, as it may not remain supported or stable.\n\nThis endpoint is currently in its **Alpha** stage.",
         "operationId": "v1-patch-network-restrictions",
         "parameters": [
           {
@@ -3840,7 +3941,7 @@
             "bearer": []
           }
         ],
-        "summary": "[Alpha] Updates project's network restrictions by adding or removing CIDRs",
+        "summary": "Updates project's network restrictions by adding or removing CIDRs",
         "tags": [
           "Projects"
         ],
@@ -3848,6 +3949,10 @@
           {
             "name": "OAuth scope: projects:write",
             "position": "after"
+          },
+          {
+            "name": "Alpha",
+            "position": "before"
           }
         ],
         "x-endpoint-owners": [
@@ -3859,11 +3964,13 @@
             "database_network_restrictions_write"
           ]
         ],
-        "x-oauth-scope": "projects:write"
+        "x-oauth-scope": "projects:write",
+        "x-scalar-stability": "experimental"
       }
     },
     "/v1/projects/{ref}/network-restrictions/apply": {
       "post": {
+        "description": "This is an **experimental** endpoint. It is subject to change or removal in future versions. Use it with caution, as it may not remain supported or stable.\n\nThis endpoint is currently in its **Beta** stage.",
         "operationId": "v1-update-network-restrictions",
         "parameters": [
           {
@@ -3919,7 +4026,7 @@
             "bearer": []
           }
         ],
-        "summary": "[Beta] Updates project's network restrictions",
+        "summary": "Updates project's network restrictions",
         "tags": [
           "Projects"
         ],
@@ -3927,6 +4034,10 @@
           {
             "name": "OAuth scope: projects:write",
             "position": "after"
+          },
+          {
+            "name": "Beta",
+            "position": "before"
           }
         ],
         "x-endpoint-owners": [
@@ -3938,11 +4049,13 @@
             "database_network_restrictions_write"
           ]
         ],
-        "x-oauth-scope": "projects:write"
+        "x-oauth-scope": "projects:write",
+        "x-scalar-stability": "experimental"
       }
     },
     "/v1/projects/{ref}/pgsodium": {
       "get": {
+        "description": "This is an **experimental** endpoint. It is subject to change or removal in future versions. Use it with caution, as it may not remain supported or stable.\n\nThis endpoint is currently in its **Beta** stage.",
         "operationId": "v1-get-pgsodium-config",
         "parameters": [
           {
@@ -3988,7 +4101,7 @@
             "bearer": []
           }
         ],
-        "summary": "[Beta] Gets project's pgsodium config",
+        "summary": "Gets project's pgsodium config",
         "tags": [
           "Secrets"
         ],
@@ -3996,6 +4109,10 @@
           {
             "name": "OAuth scope: secrets:read",
             "position": "after"
+          },
+          {
+            "name": "Beta",
+            "position": "before"
           }
         ],
         "x-endpoint-owners": [
@@ -4006,9 +4123,11 @@
             "project_admin_write"
           ]
         ],
-        "x-oauth-scope": "secrets:read"
+        "x-oauth-scope": "secrets:read",
+        "x-scalar-stability": "experimental"
       },
       "put": {
+        "description": "This is an **experimental** endpoint. It is subject to change or removal in future versions. Use it with caution, as it may not remain supported or stable.\n\nThis endpoint is currently in its **Beta** stage.",
         "operationId": "v1-update-pgsodium-config",
         "parameters": [
           {
@@ -4064,7 +4183,7 @@
             "bearer": []
           }
         ],
-        "summary": "[Beta] Updates project's pgsodium config. Updating the root_key can cause all data encrypted with the older key to become inaccessible.",
+        "summary": "Updates project's pgsodium config. Updating the root_key can cause all data encrypted with the older key to become inaccessible.",
         "tags": [
           "Secrets"
         ],
@@ -4072,6 +4191,10 @@
           {
             "name": "OAuth scope: secrets:write",
             "position": "after"
+          },
+          {
+            "name": "Beta",
+            "position": "before"
           }
         ],
         "x-endpoint-owners": [
@@ -4082,7 +4205,8 @@
             "project_admin_write"
           ]
         ],
-        "x-oauth-scope": "secrets:write"
+        "x-oauth-scope": "secrets:write",
+        "x-scalar-stability": "experimental"
       }
     },
     "/v1/projects/{ref}/postgrest": {
@@ -4658,6 +4782,7 @@
     },
     "/v1/projects/{ref}/ssl-enforcement": {
       "get": {
+        "description": "This is an **experimental** endpoint. It is subject to change or removal in future versions. Use it with caution, as it may not remain supported or stable.\n\nThis endpoint is currently in its **Beta** stage.",
         "operationId": "v1-get-ssl-enforcement-config",
         "parameters": [
           {
@@ -4703,7 +4828,7 @@
             "bearer": []
           }
         ],
-        "summary": "[Beta] Get project's SSL enforcement configuration.",
+        "summary": "Get project's SSL enforcement configuration.",
         "tags": [
           "Database"
         ],
@@ -4711,6 +4836,10 @@
           {
             "name": "OAuth scope: database:read",
             "position": "after"
+          },
+          {
+            "name": "Beta",
+            "position": "before"
           }
         ],
         "x-endpoint-owners": [
@@ -4722,9 +4851,11 @@
             "database_ssl_config_read"
           ]
         ],
-        "x-oauth-scope": "database:read"
+        "x-oauth-scope": "database:read",
+        "x-scalar-stability": "experimental"
       },
       "put": {
+        "description": "This is an **experimental** endpoint. It is subject to change or removal in future versions. Use it with caution, as it may not remain supported or stable.\n\nThis endpoint is currently in its **Beta** stage.",
         "operationId": "v1-update-ssl-enforcement-config",
         "parameters": [
           {
@@ -4780,7 +4911,7 @@
             "bearer": []
           }
         ],
-        "summary": "[Beta] Update project's SSL enforcement configuration.",
+        "summary": "Update project's SSL enforcement configuration.",
         "tags": [
           "Database"
         ],
@@ -4788,6 +4919,10 @@
           {
             "name": "OAuth scope: database:write",
             "position": "after"
+          },
+          {
+            "name": "Beta",
+            "position": "before"
           }
         ],
         "x-endpoint-owners": [
@@ -4799,7 +4934,8 @@
             "database_ssl_config_write"
           ]
         ],
-        "x-oauth-scope": "database:write"
+        "x-oauth-scope": "database:write",
+        "x-scalar-stability": "experimental"
       }
     },
     "/v1/projects/{ref}/types/typescript": {
@@ -4883,6 +5019,7 @@
     },
     "/v1/projects/{ref}/vanity-subdomain": {
       "get": {
+        "description": "This is an **experimental** endpoint. It is subject to change or removal in future versions. Use it with caution, as it may not remain supported or stable.\n\nThis endpoint is currently in its **Beta** stage.",
         "operationId": "v1-get-vanity-subdomain-config",
         "parameters": [
           {
@@ -4938,7 +5075,7 @@
             "bearer": []
           }
         ],
-        "summary": "[Beta] Gets current vanity subdomain config",
+        "summary": "Gets current vanity subdomain config",
         "tags": [
           "Domains"
         ],
@@ -4951,6 +5088,10 @@
           {
             "name": "OAuth scope: domains:read",
             "position": "after"
+          },
+          {
+            "name": "Beta",
+            "position": "before"
           },
           {
             "name": "Only available on Pro, Team, Enterprise",
@@ -4966,9 +5107,11 @@
             "vanity_subdomain_read"
           ]
         ],
-        "x-oauth-scope": "domains:read"
+        "x-oauth-scope": "domains:read",
+        "x-scalar-stability": "experimental"
       },
       "delete": {
+        "description": "This is an **experimental** endpoint. It is subject to change or removal in future versions. Use it with caution, as it may not remain supported or stable.\n\nThis endpoint is currently in its **Beta** stage.",
         "operationId": "v1-deactivate-vanity-subdomain-config",
         "parameters": [
           {
@@ -5007,7 +5150,7 @@
             "bearer": []
           }
         ],
-        "summary": "[Beta] Deletes a project's vanity subdomain configuration",
+        "summary": "Deletes a project's vanity subdomain configuration",
         "tags": [
           "Domains"
         ],
@@ -5015,6 +5158,10 @@
           {
             "name": "OAuth scope: domains:write",
             "position": "after"
+          },
+          {
+            "name": "Beta",
+            "position": "before"
           }
         ],
         "x-endpoint-owners": [
@@ -5026,11 +5173,13 @@
             "vanity_subdomain_write"
           ]
         ],
-        "x-oauth-scope": "domains:write"
+        "x-oauth-scope": "domains:write",
+        "x-scalar-stability": "experimental"
       }
     },
     "/v1/projects/{ref}/vanity-subdomain/check-availability": {
       "post": {
+        "description": "This is an **experimental** endpoint. It is subject to change or removal in future versions. Use it with caution, as it may not remain supported or stable.\n\nThis endpoint is currently in its **Beta** stage.",
         "operationId": "v1-check-vanity-subdomain-availability",
         "parameters": [
           {
@@ -5096,7 +5245,7 @@
             "bearer": []
           }
         ],
-        "summary": "[Beta] Checks vanity subdomain availability",
+        "summary": "Checks vanity subdomain availability",
         "tags": [
           "Domains"
         ],
@@ -5109,6 +5258,10 @@
           {
             "name": "OAuth scope: domains:write",
             "position": "after"
+          },
+          {
+            "name": "Beta",
+            "position": "before"
           },
           {
             "name": "Only available on Pro, Team, Enterprise",
@@ -5124,11 +5277,13 @@
             "vanity_subdomain_write"
           ]
         ],
-        "x-oauth-scope": "domains:write"
+        "x-oauth-scope": "domains:write",
+        "x-scalar-stability": "experimental"
       }
     },
     "/v1/projects/{ref}/vanity-subdomain/activate": {
       "post": {
+        "description": "This is an **experimental** endpoint. It is subject to change or removal in future versions. Use it with caution, as it may not remain supported or stable.\n\nThis endpoint is currently in its **Beta** stage.",
         "operationId": "v1-activate-vanity-subdomain-config",
         "parameters": [
           {
@@ -5194,7 +5349,7 @@
             "bearer": []
           }
         ],
-        "summary": "[Beta] Activates a vanity subdomain for a project.",
+        "summary": "Activates a vanity subdomain for a project.",
         "tags": [
           "Domains"
         ],
@@ -5207,6 +5362,10 @@
           {
             "name": "OAuth scope: domains:write",
             "position": "after"
+          },
+          {
+            "name": "Beta",
+            "position": "before"
           },
           {
             "name": "Only available on Pro, Team, Enterprise",
@@ -5222,11 +5381,13 @@
             "vanity_subdomain_write"
           ]
         ],
-        "x-oauth-scope": "domains:write"
+        "x-oauth-scope": "domains:write",
+        "x-scalar-stability": "experimental"
       }
     },
     "/v1/projects/{ref}/upgrade": {
       "post": {
+        "description": "This is an **experimental** endpoint. It is subject to change or removal in future versions. Use it with caution, as it may not remain supported or stable.\n\nThis endpoint is currently in its **Beta** stage.",
         "operationId": "v1-upgrade-postgres-version",
         "parameters": [
           {
@@ -5282,7 +5443,7 @@
             "bearer": []
           }
         ],
-        "summary": "[Beta] Upgrades the project's Postgres version",
+        "summary": "Upgrades the project's Postgres version",
         "tags": [
           "Projects"
         ],
@@ -5290,6 +5451,10 @@
           {
             "name": "OAuth scope: projects:write",
             "position": "after"
+          },
+          {
+            "name": "Beta",
+            "position": "before"
           }
         ],
         "x-endpoint-owners": [
@@ -5302,11 +5467,13 @@
             "database_write"
           ]
         ],
-        "x-oauth-scope": "projects:write"
+        "x-oauth-scope": "projects:write",
+        "x-scalar-stability": "experimental"
       }
     },
     "/v1/projects/{ref}/upgrade/eligibility": {
       "get": {
+        "description": "This is an **experimental** endpoint. It is subject to change or removal in future versions. Use it with caution, as it may not remain supported or stable.\n\nThis endpoint is currently in its **Beta** stage.",
         "operationId": "v1-get-postgres-upgrade-eligibility",
         "parameters": [
           {
@@ -5352,7 +5519,7 @@
             "bearer": []
           }
         ],
-        "summary": "[Beta] Returns the project's eligibility for upgrades",
+        "summary": "Returns the project's eligibility for upgrades",
         "tags": [
           "Projects"
         ],
@@ -5360,6 +5527,10 @@
           {
             "name": "OAuth scope: projects:read",
             "position": "after"
+          },
+          {
+            "name": "Beta",
+            "position": "before"
           }
         ],
         "x-endpoint-owners": [
@@ -5372,11 +5543,13 @@
             "database_read"
           ]
         ],
-        "x-oauth-scope": "projects:read"
+        "x-oauth-scope": "projects:read",
+        "x-scalar-stability": "experimental"
       }
     },
     "/v1/projects/{ref}/upgrade/status": {
       "get": {
+        "description": "This is an **experimental** endpoint. It is subject to change or removal in future versions. Use it with caution, as it may not remain supported or stable.\n\nThis endpoint is currently in its **Beta** stage.",
         "operationId": "v1-get-postgres-upgrade-status",
         "parameters": [
           {
@@ -5431,7 +5604,7 @@
             "bearer": []
           }
         ],
-        "summary": "[Beta] Gets the latest status of the project's upgrade",
+        "summary": "Gets the latest status of the project's upgrade",
         "tags": [
           "Projects"
         ],
@@ -5439,6 +5612,10 @@
           {
             "name": "OAuth scope: projects:read",
             "position": "after"
+          },
+          {
+            "name": "Beta",
+            "position": "before"
           }
         ],
         "x-endpoint-owners": [
@@ -5451,7 +5628,8 @@
             "database_read"
           ]
         ],
-        "x-oauth-scope": "projects:read"
+        "x-oauth-scope": "projects:read",
+        "x-scalar-stability": "experimental"
       }
     },
     "/v1/projects/{ref}/readonly": {
@@ -5589,6 +5767,7 @@
     },
     "/v1/projects/{ref}/read-replicas/setup": {
       "post": {
+        "description": "This is an **experimental** endpoint. It is subject to change or removal in future versions. Use it with caution, as it may not remain supported or stable.\n\nThis endpoint is currently in its **Beta** stage.",
         "operationId": "v1-setup-a-read-replica",
         "parameters": [
           {
@@ -5647,7 +5826,7 @@
             "bearer": []
           }
         ],
-        "summary": "[Beta] Set up a read replica",
+        "summary": "Set up a read replica",
         "tags": [
           "Database"
         ],
@@ -5657,6 +5836,10 @@
           "Enterprise"
         ],
         "x-badges": [
+          {
+            "name": "Beta",
+            "position": "before"
+          },
           {
             "name": "Only available on Pro, Team, Enterprise",
             "position": "before"
@@ -5670,11 +5853,13 @@
           [
             "infra_read_replicas_write"
           ]
-        ]
+        ],
+        "x-scalar-stability": "experimental"
       }
     },
     "/v1/projects/{ref}/read-replicas/remove": {
       "post": {
+        "description": "This is an **experimental** endpoint. It is subject to change or removal in future versions. Use it with caution, as it may not remain supported or stable.\n\nThis endpoint is currently in its **Beta** stage.",
         "operationId": "v1-remove-a-read-replica",
         "parameters": [
           {
@@ -5723,9 +5908,15 @@
             "bearer": []
           }
         ],
-        "summary": "[Beta] Remove a read replica",
+        "summary": "Remove a read replica",
         "tags": [
           "Database"
+        ],
+        "x-badges": [
+          {
+            "name": "Beta",
+            "position": "before"
+          }
         ],
         "x-endpoint-owners": [
           "control-plane",
@@ -5735,7 +5926,8 @@
           [
             "infra_read_replicas_write"
           ]
-        ]
+        ],
+        "x-scalar-stability": "experimental"
       }
     },
     "/v1/projects/{ref}/health": {
@@ -8148,6 +8340,7 @@
     },
     "/v1/projects/{ref}/cli/login-role": {
       "post": {
+        "description": "This is an **experimental** endpoint. It is subject to change or removal in future versions. Use it with caution, as it may not remain supported or stable.\n\nThis endpoint is currently in its **Beta** stage.",
         "operationId": "v1-create-login-role",
         "parameters": [
           {
@@ -8203,7 +8396,7 @@
             "bearer": []
           }
         ],
-        "summary": "[Beta] Create a login role for CLI with temporary password",
+        "summary": "Create a login role for CLI with temporary password",
         "tags": [
           "Database"
         ],
@@ -8211,6 +8404,10 @@
           {
             "name": "OAuth scope: database:write",
             "position": "after"
+          },
+          {
+            "name": "Beta",
+            "position": "before"
           }
         ],
         "x-endpoint-owners": [
@@ -8221,9 +8418,11 @@
             "database_write"
           ]
         ],
-        "x-oauth-scope": "database:write"
+        "x-oauth-scope": "database:write",
+        "x-scalar-stability": "experimental"
       },
       "delete": {
+        "description": "This is an **experimental** endpoint. It is subject to change or removal in future versions. Use it with caution, as it may not remain supported or stable.\n\nThis endpoint is currently in its **Beta** stage.",
         "operationId": "v1-delete-login-roles",
         "parameters": [
           {
@@ -8269,7 +8468,7 @@
             "bearer": []
           }
         ],
-        "summary": "[Beta] Delete existing login roles used by CLI",
+        "summary": "Delete existing login roles used by CLI",
         "tags": [
           "Database"
         ],
@@ -8277,6 +8476,10 @@
           {
             "name": "OAuth scope: database:write",
             "position": "after"
+          },
+          {
+            "name": "Beta",
+            "position": "before"
           }
         ],
         "x-endpoint-owners": [
@@ -8287,7 +8490,8 @@
             "database_write"
           ]
         ],
-        "x-oauth-scope": "database:write"
+        "x-oauth-scope": "database:write",
+        "x-scalar-stability": "experimental"
       }
     },
     "/v1/projects/{ref}/database/migrations": {
@@ -8743,6 +8947,7 @@
     },
     "/v1/projects/{ref}/database/query": {
       "post": {
+        "description": "This is an **experimental** endpoint. It is subject to change or removal in future versions. Use it with caution, as it may not remain supported or stable.\n\nThis endpoint is currently in its **Beta** stage.",
         "operationId": "v1-run-a-query",
         "parameters": [
           {
@@ -8791,7 +8996,7 @@
             "bearer": []
           }
         ],
-        "summary": "[Beta] Run sql query",
+        "summary": "Run sql query",
         "tags": [
           "Database"
         ],
@@ -8799,6 +9004,10 @@
           {
             "name": "OAuth scope: database:write",
             "position": "after"
+          },
+          {
+            "name": "Beta",
+            "position": "before"
           }
         ],
         "x-endpoint-owners": [
@@ -8812,12 +9021,13 @@
             "database_write"
           ]
         ],
-        "x-oauth-scope": "database:write"
+        "x-oauth-scope": "database:write",
+        "x-scalar-stability": "experimental"
       }
     },
     "/v1/projects/{ref}/database/query/read-only": {
       "post": {
-        "description": "All entity references must be schema qualified.",
+        "description": "All entity references must be schema qualified.\n\nThis endpoint is currently in its **Beta** stage.",
         "operationId": "v1-read-only-query",
         "parameters": [
           {
@@ -8866,7 +9076,7 @@
             "bearer": []
           }
         ],
-        "summary": "[Beta] Run a sql query as supabase_read_only_user",
+        "summary": "Run a sql query as supabase_read_only_user",
         "tags": [
           "Database"
         ],
@@ -8874,6 +9084,10 @@
           {
             "name": "OAuth scope: database:read",
             "position": "after"
+          },
+          {
+            "name": "Beta",
+            "position": "before"
           }
         ],
         "x-endpoint-owners": [
@@ -8884,11 +9098,13 @@
             "database_read"
           ]
         ],
-        "x-oauth-scope": "database:read"
+        "x-oauth-scope": "database:read",
+        "x-scalar-stability": "experimental"
       }
     },
     "/v1/projects/{ref}/database/webhooks/enable": {
       "post": {
+        "description": "This is an **experimental** endpoint. It is subject to change or removal in future versions. Use it with caution, as it may not remain supported or stable.\n\nThis endpoint is currently in its **Beta** stage.",
         "operationId": "v1-enable-database-webhook",
         "parameters": [
           {
@@ -8927,7 +9143,7 @@
             "bearer": []
           }
         ],
-        "summary": "[Beta] Enables Database Webhooks on the project",
+        "summary": "Enables Database Webhooks on the project",
         "tags": [
           "Database"
         ],
@@ -8935,6 +9151,10 @@
           {
             "name": "OAuth scope: database:write",
             "position": "after"
+          },
+          {
+            "name": "Beta",
+            "position": "before"
           }
         ],
         "x-endpoint-owners": [
@@ -8946,7 +9166,8 @@
             "database_webhooks_config_write"
           ]
         ],
-        "x-oauth-scope": "database:write"
+        "x-oauth-scope": "database:write",
+        "x-scalar-stability": "experimental"
       }
     },
     "/v1/projects/{ref}/database/context": {

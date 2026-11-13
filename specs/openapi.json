@@ -834,6 +834,16 @@
           "401": {
             "description": "Unauthorized"
           },
+          "402": {
+            "description": "The instance size is not available on the organization plan, or the organization has overdue invoices",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PlanGateErrorBody"
+                }
+              }
+            }
+          },
           "403": {
             "description": "Forbidden action"
           },
@@ -2221,6 +2231,16 @@
           "401": {
             "description": "Unauthorized"
           },
+          "402": {
+            "description": "Custom JWT templates for secret API keys are not available on the organization plan",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PlanGateErrorBody"
+                }
+              }
+            }
+          },
           "403": {
             "description": "Forbidden action"
           },
@@ -2457,6 +2477,16 @@
           },
           "401": {
             "description": "Unauthorized"
+          },
+          "402": {
+            "description": "Custom JWT templates for secret API keys are not available on the organization plan",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PlanGateErrorBody"
+                }
+              }
+            }
           },
           "403": {
             "description": "Forbidden action"
@@ -6786,6 +6816,16 @@
           "401": {
             "description": "Unauthorized"
           },
+          "402": {
+            "description": "An auth setting in the request is not available on the organization plan",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PlanGateErrorBody"
+                }
+              }
+            }
+          },
           "403": {
             "description": "Forbidden action"
           },
@@ -7320,6 +7360,16 @@
           },
           "401": {
             "description": "Unauthorized"
+          },
+          "402": {
+            "description": "The restore is not available on the organization plan, or the organization has overdue invoices or a service restriction",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PlanGateErrorBody"
+                }
+              }
+            }
           },
           "403": {
             "description": "Forbidden action"
@@ -10207,7 +10257,14 @@
             "description": "Unauthorized"
           },
           "402": {
-            "description": "Maximum number of functions reached for Plan"
+            "description": "Maximum number of functions reached for Plan",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PlanGateErrorBody"
+                }
+              }
+            }
           },
           "403": {
             "description": "Forbidden action"
@@ -10287,7 +10344,14 @@
             "description": "Unauthorized"
           },
           "402": {
-            "description": "Maximum number of functions reached for Plan"
+            "description": "Maximum number of functions reached for Plan",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PlanGateErrorBody"
+                }
+              }
+            }
           },
           "403": {
             "description": "Forbidden action"
@@ -10388,7 +10452,14 @@
             "description": "Unauthorized"
           },
           "402": {
-            "description": "Maximum number of functions reached for Plan"
+            "description": "Maximum number of functions reached for Plan",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PlanGateErrorBody"
+                }
+              }
+            }
           },
           "403": {
             "description": "Forbidden action"
@@ -10980,6 +11051,16 @@
           "401": {
             "description": "Unauthorized"
           },
+          "402": {
+            "description": "Disk modifications are not available on the organization plan",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PlanGateErrorBody"
+                }
+              }
+            }
+          },
           "403": {
             "description": "Forbidden action"
           },
@@ -11227,6 +11308,16 @@
           },
           "401": {
             "description": "Unauthorized"
+          },
+          "402": {
+            "description": "A storage feature or file size limit in the request is not available on the organization plan",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PlanGateErrorBody"
+                }
+              }
+            }
           },
           "403": {
             "description": "Forbidden action"
@@ -18146,6 +18237,10 @@
             "type": "boolean",
             "nullable": true
           },
+          "external_email_magic_link_disabled": {
+            "type": "boolean",
+            "nullable": true
+          },
           "security_captcha_enabled": {
             "type": "boolean",
             "nullable": true
@@ -18551,6 +18646,7 @@
           "saml_external_url",
           "saml_allow_encrypted_assertions",
           "security_sb_forwarded_for_enabled",
+          "external_email_magic_link_disabled",
           "security_captcha_enabled",
           "security_captcha_provider",
           "security_captcha_secret",
@@ -18824,6 +18920,9 @@
           "security_sb_forwarded_for_enabled": {
             "type": "boolean",
             "nullable": true
+          },
+          "external_email_magic_link_disabled": {
+            "type": "boolean"
           },
           "security_captcha_enabled": {
             "type": "boolean",

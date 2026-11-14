@@ -458,9 +458,6 @@
         ],
         "x-fga-permissions": [
           [
-            "branching_development_write"
-          ],
-          [
             "branching_production_write"
           ]
         ],

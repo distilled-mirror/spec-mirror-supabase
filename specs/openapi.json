@@ -13545,7 +13545,8 @@
               "RESTARTING",
               "PAUSE_FAILED",
               "RESIZING",
-              "PROMOTING"
+              "PROMOTING",
+              "RIGHTSIZING"
             ]
           },
           "db_host": {
@@ -13717,7 +13718,8 @@
               "RESTARTING",
               "PAUSE_FAILED",
               "RESIZING",
-              "PROMOTING"
+              "PROMOTING",
+              "RIGHTSIZING"
             ]
           }
         },
@@ -13885,7 +13887,8 @@
               "RESTARTING",
               "PAUSE_FAILED",
               "RESIZING",
-              "PROMOTING"
+              "PROMOTING",
+              "RIGHTSIZING"
             ]
           },
           "database": {
@@ -14210,7 +14213,8 @@
               "RESTARTING",
               "PAUSE_FAILED",
               "RESIZING",
-              "PROMOTING"
+              "PROMOTING",
+              "RIGHTSIZING"
             ]
           }
         },
@@ -24637,7 +24641,8 @@
                     "RESTARTING",
                     "PAUSE_FAILED",
                     "RESIZING",
-                    "PROMOTING"
+                    "PROMOTING",
+                    "RIGHTSIZING"
                   ]
                 },
                 "inserted_at": {
